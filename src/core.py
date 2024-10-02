@@ -2,6 +2,7 @@ from utils import get_number_lines, get_bet, generate_spin, print_spin, check_wi
 from constants import MAX_LINES, ROWS, COLS, MIN_BET, MAX_BET, SYMBOL_COUNT, SYMBOL_VALUES
 import os, time
 
+# Asks player for a starting amount
 def deposit():
     while True:
         try:
@@ -17,7 +18,7 @@ def deposit():
             
     return amount
 
-
+# Receives all the parameters, generates a spin, checks winnings and returns benefits or losses
 def spin(balance):
     lines = get_number_lines(MAX_LINES)
     while True:

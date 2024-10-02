@@ -1,5 +1,6 @@
 import random
 
+# Asks player in how many rows does he want to bet
 def get_number_lines(max_lines):
     while True:
         try:
@@ -15,7 +16,7 @@ def get_number_lines(max_lines):
 
     return lines
 
-
+# Asks player for the amount to bet
 def get_bet(min_bet, max_bet):
     while True:
         try:
@@ -31,7 +32,7 @@ def get_bet(min_bet, max_bet):
 
     return bet
 
-
+# Creates a matrix with the values for each column (vertical)
 def generate_spin(rows, cols, symbols):
     all_symbols = []
     for symbol, count in symbols.items():
@@ -51,7 +52,7 @@ def generate_spin(rows, cols, symbols):
     
     return columns
 
-
+# Transposes the matrix and prints the spin
 def print_spin(columns):
     for row in range(len(columns[0])):
         for i, column in enumerate(columns):
@@ -60,7 +61,7 @@ def print_spin(columns):
             else:
                 print(column[row])
 
-
+# Checks if the three symbols of a row are the same
 def check_winnings(columns, lines, bet, values):
     winnings = 0
     winning_lines = []
@@ -70,7 +71,7 @@ def check_winnings(columns, lines, bet, values):
             symbol_check = column[line]
             if symbol != symbol_check:
                 break
-        else: # Executes only if the above for loop ends without being broken
+        else:
             winnings += values[symbol] * bet
             winning_lines.append(line + 1)
 
